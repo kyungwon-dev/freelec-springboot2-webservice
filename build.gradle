@@ -1,0 +1,47 @@
+buildscript {
+    ext {// use for global variables. scope : build.gradle
+        springBootVersion = '2.1.7.RELEASE'
+        springDependencyManagementVersion = '1.0.8.RELEASE'
+    }
+    repositories {  // set remote repository for library dependencies.
+        mavenCentral()
+    }
+    dependencies { // add project development dependency
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+plugins {
+    // plugins dependencies
+    id 'java' // add plugins : 'java'
+    id 'eclipse'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springDependencyManagementVersion}"  // springboot dependencies
+}
+
+group 'com.jojoldu.book'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    /*
+    compile         -> implementation
+    testCompile     -> testImplementation
+    debugCompile    -> debugImplementation
+    androidTestCompile -> androidTestImplementation
+
+    https://docs.gradle.org/current/userguide/dependency_management_for_java_projects.html#sec:configurations_java_tutorial
+     */
+    //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation('org.springframework.boot:spring-boot-starter-web')
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+
+}
+
+test {
+    useJUnitPlatform()
+}
