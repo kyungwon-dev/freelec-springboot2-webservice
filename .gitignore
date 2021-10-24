@@ -1,0 +1,4 @@
+# Created by .gitignore plgins
+# Project exclude paths
+/.gradle/
+/.idea/
