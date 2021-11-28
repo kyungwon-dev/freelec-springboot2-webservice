@@ -38,7 +38,11 @@ dependencies {
     //testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     //testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
     implementation('org.springframework.boot:spring-boot-starter-web')
-    implementation('org.projectlombok:lombok')
+
+    // Gradle 5.x 이상의 버전에서의 Lombok 의존성 추가 방법이 변경되었음.
+    // implementation('org.projectlombok:lombok')
+    compileOnly ('org.projectlombok:lombok')
+    annotationProcessor ('org.projectlombok:lombok')
 
     //test library
     testImplementation('org.springframework.boot:spring-boot-starter-test')
